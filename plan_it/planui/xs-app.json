@@ -1,5 +1,0 @@
-{
-  "welcomeFile": "index.html",
-  "authenticationMethod": "none",
-  "routes": [{ "source": "/plan.xsodata/", "destination": "planjs_be" }]
-}
