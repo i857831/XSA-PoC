@@ -1,0 +1,64 @@
+<mvc:View xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:semantic="sap.m.semantic" xmlns:footerbar="sap.ushell.ui.footerbar" controllerName="plan.controller.Detail">
+
+	<semantic:DetailPage id="page" navButtonPress="onNavBack" showNavButton="{device>/system/phone}" title="{i18n>detailTitle}" busy="{detailView>/busy}" busyIndicatorDelay="{detailView>/delay}">
+
+		<semantic:content>
+			<ObjectHeader id="objectHeader" title="{description}" numberUnit="{currency}">
+			</ObjectHeader>
+			<IconTabBar id="iconTabBar" class="sapUiResponsiveContentPadding">
+				<items>
+					<IconTabFilter id="iconTabBarFilter1" icon="sap-icon://simple-payment" tooltip="{i18n>detailIconTabBarInfo}" key="Planning">
+					<content>
+					    <Table noDataText="Drop column list items here and columns in the area above" id="__table0" items="{PlAttr}">
+					        <items>
+					            <ColumnListItem id="__item0">
+					                <cells>
+					                    <Text text="{structure_element}" id="__text6"/>
+					                    <Text text="{resource_name}" id="__text7"/>
+					                    <Text text="{rev_rate_name}" id="__text8"/></cells>
+					            </ColumnListItem></items>
+					        <columns>
+					            <Column id="__column0">
+					                <header>
+					                    <Label text="Structure Element" id="__label0"/>
+					                </header>
+					            </Column>
+					            <Column id="__column1">
+					                <header>
+					                    <Label text="Resource" id="__label1"/>
+					                </header>
+					            </Column>
+					            <Column id="__column2">
+					                <header>
+					                    <Label text="Revenue Rate" id="__label2"/>
+					                </header>
+					            </Column></columns>
+					        <headerToolbar>
+					            <OverflowToolbar width="100%" id="__toolbar1">
+					                <content>
+					                    <Text text="Planning attributes" id="__text13"/>
+					                </content>
+					            </OverflowToolbar>
+					        </headerToolbar></Table>
+					</content>
+					</IconTabFilter>
+				</items>
+			</IconTabBar>
+
+		</semantic:content>
+
+		<semantic:sendEmailAction>
+			<semantic:SendEmailAction id="shareEmail" press="onShareEmailPress"/>
+		</semantic:sendEmailAction>
+
+		<semantic:shareInJamAction>
+			<semantic:ShareInJamAction id="shareInJam" visible="{FLP>/isShareInJamActive}" press="onShareInJamPress"/>
+		</semantic:shareInJamAction>
+
+		<semantic:saveAsTileAction>
+			<footerbar:AddBookmarkButton id="shareTile" title="{detailView>/saveAsTileTitle}"/>
+		</semantic:saveAsTileAction>
+
+	</semantic:DetailPage>
+
+</mvc:View>
